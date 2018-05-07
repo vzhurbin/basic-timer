@@ -1,22 +1,35 @@
 import { createSelector } from 'reselect';
 import { NAME } from './constants';
 
-export const getPausesRemaning = state => state[NAME].pausesRemaning;
-export const getPageData = state => state[NAME].pageData;
-export const getError = state => state[NAME].error;
-export const getLoader = state => state[NAME].isLoad;
+export const getTimer = state => state[NAME].timer.timer;
+export const getDisplay = state => state[NAME].timer.display;
+export const getTicking = state => state[NAME].timer.ticking;
+export const getCurrentTimer = state => state[NAME].timer.currentTimer;
+export const getNextTimer = state => state[NAME].timer.nextTimer;
 
-export const selectLoader = createSelector(getLoader, isLoad => {
-  return isLoad;
-});
+export const selectTimer = createSelector(
+  getTimer,
+  timer => (timer ? timer : null),
+);
 
-export const selectPageData = createSelector(getPageData, pageData => {
-  if (pageData) {
-    return pageData;
-  }
-  return null;
-});
+export const selectTimer = createSelector(
+  getTimer,
+  timer => (timer ? timer : null)
+);
+export const selectDisplay = createSelector(
+  getDisplay,
+  display => (display ? display : null)
+);
+export const selectTicking = createSelector(
+  getTicking,
+  ticking => (ticking ? ticking : null)
+);
+export const selectCurrentTimer = createSelector(
+  getCurrentTimer,
+  currentTimer => (currentTimer ? currentTimer : null)
+);
+export const selectNextTimer = createSelector(
+  getNextTimer,
+  nextTimer => (nextTimer ? nextTimer : null)
+);
 
-export const selectError = createSelector(getError, error => {
-  return error;
-});
