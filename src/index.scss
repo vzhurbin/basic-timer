@@ -1,0 +1,190 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+$accent: #00c572;
+/**
+generics / base / type selectors
+*/
+
+html {
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    font-size: 1.4em;
+}
+
+input,
+button {
+    font-family: inherit;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+/**
+Objects
+*/
+
+.control {
+    &__label {
+        font-size: 1em;
+        text-transform: lowercase;
+    }
+}
+
+.time {
+    &__input {
+        width: 3em;
+        text-align: center;
+        appearance: none;
+        border: none;
+        background: none;
+        font-size: 1.5em;
+        text-align: center;
+        outline: none;
+        overflow: hidden;
+        &:focus {
+            color: $accent;
+        }
+    }
+    &__control {
+        line-height: 1.5em;
+        cursor: pointer;
+        &:hover {
+            color: $accent;
+        }
+    }
+}
+
+.button {
+    width: 150px;
+    padding: 1em 1.5em;
+    text-align: center;
+    background: $accent;
+    color: #fff;
+    border-radius: 2em;
+    user-select: none;
+    box-shadow: 4px 6px 18px rgba(0, 0, 0, .2);
+    &:hover {
+        background: #00ac63;
+        cursor: pointer;
+    }
+}
+
+.button-anchor {
+    background: none;
+    text-decoration: underline;
+    &:hover {
+        color: $accent;
+        text-decoration: none;
+    }
+}
+
+.timer {
+    font-size: 15vmin;
+    margin: 0;
+    padding: 100px 0;
+    @media (max-width: 700px) {
+        font-size: 20vmin;
+    }
+    &__mins,
+    &__secs {
+        min-width: 1.5em;
+        display: inline-block;
+    }
+}
+
+.start-stop {
+    margin: 0 0 1em;
+    &__button {
+        &:before {
+            content: '';
+            margin: 0 10px 0 0;
+            width: 0px;
+            height: 0px;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 10px solid white;
+            display: inline-block;
+            vertical-align: middle;
+            transition: all 0.3s ease;
+        }
+        &--stop {
+            &:before {
+                border-top-color: white;
+                border-bottom-color: white;
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+.timer-settings {
+    margin: auto;
+    padding: 10vmin 5%;
+    max-width: 600px;
+}
+
+.timer-container {
+    padding: 0 5% 100px 5%;
+    background: linear-gradient(-135deg, rgba(237, 22, 74, 0.3), rgba(238, 55, 55, 0.2)) #ff3c41;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+    &--break {
+        background-color: #0e6fff;
+    }
+}
+
+.controls-container {
+    position: relative;
+    z-index: 5;
+    &:before {
+        content: '';
+        height: 100px;
+        margin-top: -95px;
+        margin-bottom: -130px;
+        width: 100%;
+        background: radial-gradient(ellipse farthest-side at 50% 120%, #fff 0%, #fff 99.5%, rgba(255, 255, 255, 0) 100%) center center no-repeat;
+        background-size: 120% 100%;
+        display: block;
+    }
+}
+
+/**
+Layout
+*/
+
+.wrapper {
+    width: 100%;
+}
+
+.container {
+    width: 500px;
+    max-width: 100%;
+    margin: auto;
+}
+
+.flex-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.col {
+    flex: 1;
+}
