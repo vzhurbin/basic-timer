@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-let TimerDisplay = ({ minutes, seconds, currentTimer }) => (
+const TimerDisplay = ({ minutes, seconds, currentTimer }) => (
   <div className={`timer-container timer-container--${currentTimer}`}>
     <h1 className="timer">
       <span className="timer__mins">{minutes}</span>

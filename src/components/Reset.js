@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { onTimerReset } from './../timeCounter/actions';
 
-let Reset = ({ onTimerReset }) => (
+const Reset = ({ onTimerReset }) => (
   <div className="reset">
     <button className="button-anchor" onClick={() => onTimerReset()}>
       reset

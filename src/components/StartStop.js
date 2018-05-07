@@ -3,16 +3,9 @@ import { connect } from 'react-redux';
 
 import { onTimerStartStop } from './../timeCounter/actions';
 
-let StartStop = ({ onTimerStartStop, ticking }) => (
+const StartStop = ({ onTimerStartStop, ticking }) => (
   <div className="start-stop">
-    <button
-      className={
-        'start-stop__button--' +
-        (ticking ? 'stop' : 'start') +
-        ' start-stop__button button'
-      }
-      onClick={() => onTimerStartStop()}
-    >
+    <button onClick={() => onTimerStartStop()}>
       {ticking ? 'stop' : 'start'}
     </button>
   </div>

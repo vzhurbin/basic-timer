@@ -7,7 +7,7 @@ import {
   onTimerChange,
 } from './../timeCounter/actions';
 
-let TimeControl = ({
+const TimeControl = ({
   name,
   value,
   onTimerIncrement,
