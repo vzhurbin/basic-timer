@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import { onTimerStartStop } from './../timeCounter/actions';
 
 const StartStop = ({ onTimerStartStop, ticking }) => (
   <div className="start-stop">
@@ -11,6 +8,4 @@ const StartStop = ({ onTimerStartStop, ticking }) => (
   </div>
 );
 
-export default connect(state => ({ ticking: state.timer.ticking }), {
-  onTimerStartStop,
-})(StartStop);
+export default StartStop;

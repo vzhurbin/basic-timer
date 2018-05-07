@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import {
   onTimerIncrement,
@@ -42,7 +41,5 @@ const TimeControl = ({
     </div>
   </div>
 );
-export default connect(
-  (state, ownProps) => ({ value: state.settings[ownProps.name] }),
-  { onTimerIncrement, onTimerDecrement, onTimerChange },
-)(TimeControl);
+
+export default TimeControl;

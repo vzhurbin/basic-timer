@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import { onTimerReset } from './../timeCounter/actions';
 
 const Reset = ({ onTimerReset }) => (
   <div className="reset">
@@ -11,4 +8,4 @@ const Reset = ({ onTimerReset }) => (
   </div>
 );
 
-export default connect(null, { onTimerReset })(Reset);
+export default Reset;

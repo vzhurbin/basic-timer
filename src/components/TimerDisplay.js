@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 const TimerDisplay = ({ minutes, seconds, currentTimer }) => (
   <div className={`timer-container timer-container--${currentTimer}`}>
@@ -10,8 +9,5 @@ const TimerDisplay = ({ minutes, seconds, currentTimer }) => (
     </h1>
   </div>
 );
-export default connect(state => ({
-  minutes: state.timer.display.minutes,
-  seconds: state.timer.display.seconds,
-  currentTimer: state.timer.currentTimer.toLowerCase(),
-}))(TimerDisplay);
+
+export default TimerDisplay;

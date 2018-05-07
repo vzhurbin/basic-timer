@@ -1,14 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-import { onTick } from './../../actions';
+import TimerDisplay from './../../../components/TimerDisplay';
+import StartStop from './../../../components/StartStop';
+import Reset from './../../../components/Reset';
 
 export class Timer extends React.Component {
   componentDidMount() {
     this.timerID = setInterval(() => {
-      const { ticking, onTick, settings } = this.props;
+      const { ticking, actions, settings } = this.props;
       if (ticking) {
-        onTick(settings);
+        actions.onTick(settings);
       }
     }, 1000);
   }
@@ -18,15 +19,24 @@ export class Timer extends React.Component {
   }
 
   render() {
-    return null;
+    const { actions, display, currentTimer, ticking } = this.props;
+    return (
+      <div className="wrapper">
+        <TimerDisplay
+          minutes={display.minutes}
+          seconds={display.seconds}
+          currentTimer={currentTimer}
+        />
+        <div className="controls-container">
+          <StartStop
+            ticking={ticking}
+            onTimerStartStop={actions.onTimerStartStop}
+          />
+          <Reset onTimerReset={actions.onTimerReset} />
+        </div>
+      </div>
+    );
   }
 }
 
-export default connect(
-  state => ({
-    currentTimer: state.timer.currentTimer,
-    ticking: state.timer.ticking,
-    settings: state.settings,
-  }),
-  { onTick },
-)(Timer);
+export default Timer;
