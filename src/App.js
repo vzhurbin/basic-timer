@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import TimerContainer from './timeCounter/components/layout';
 import TimerDisplay from './components/TimerDisplay';
 import TimeControl from './components/TimeControl';
